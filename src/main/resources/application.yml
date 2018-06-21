@@ -11,3 +11,12 @@ management:
     web:
       exposure:
         include: beans,shutdown
+spring:
+  redis:
+    host: localhsot
+    port: 6379
+  elasticsearch:
+    jest:
+      uris: ["localhost:9092"]
+  main:
+    banner-mode: "off"
