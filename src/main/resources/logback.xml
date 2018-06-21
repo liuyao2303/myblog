@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configuration scan="true" scanPeriod="60 seconds" debug="false">
+<configuration>
 
-    <contextName>logback-demo</contextName>
+    <contextName>my-log</contextName>
 
     <!--输出到控制台 ConsoleAppender-->
     <appender name="consoleLog1" class="ch.qos.logback.core.ConsoleAppender">
@@ -30,11 +30,6 @@
             的日志改名为今天的日期。即，<File> 的日志都是当天的。
         -->
 
-        <!-- 控制某一具体类的日志 -->
-        <logger name="com.blog.api" level="DEBUG" additivity="false">
-            <appender-ref ref="fileInfoLog"/>
-        </logger>
-
         <File>D:/log/data.log</File>
         <!--滚动策略，按照时间滚动 TimeBasedRollingPolicy-->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
@@ -51,6 +46,11 @@
             <pattern>%d [%thread] %-5level %logger{36} %line - %msg%n</pattern>
         </encoder>
     </appender>
+
+    <!-- 控制某一具体类的日志 -->
+    <logger name="com.blog.api" level="DEBUG" additivity="false">
+        <appender-ref ref="fileInfoLog"/>
+    </logger>
 
     <!--指定最基础的日志输出级别-->
     <root level="INFO">
